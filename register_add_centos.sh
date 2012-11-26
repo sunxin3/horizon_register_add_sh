@@ -10,9 +10,26 @@ rm -rf dashboard_project/
 cd /usr/share/openstack-dashboard/openstack_dashboard/local/
 mv local_settings.py local_settings.py.bak
 ln -s /etc/openstack-dashboard/local_settings  local_settings.py
-cd /usr/share/openstack-dashboard/static/horizon/static
+#cd /usr/share/openstack-dashboard/static/horizon/static
+#mv horizon horizon.bak
+#ln -s /usr/lib/python2.6/site-packages/horizon/static/horizon horizon
+
+cd /usr/share/openstack-dashboard
+mv static static.bak
+mkdir static
+cd static
+mkdir horizon
+cd horizon
+mkdir static
+cd static
 mv horizon horizon.bak
 ln -s /usr/lib/python2.6/site-packages/horizon/static/horizon horizon
+
+cd /usr/share/openstack-dashboard/static
+ln -s /usr/share/openstack-dashboard/openstack_dashboard/static/*   ./
+
+cd /usr/share/openstack-dashboard/static/horizon
+ln -s /usr/lib/python2.6/site-packages/horizon/static/horizon/js js
 
 #2:/usr/lib/python2.6/site-packages/horizon:
 cd /usr/lib/python2.6/site-packages
